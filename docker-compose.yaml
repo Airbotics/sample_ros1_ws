@@ -1,0 +1,42 @@
+version: '2'
+
+# ROS network
+networks:
+  ros:
+    driver: bridge
+
+services:
+
+    # ROS master node
+    master:
+        container_name: master
+        image: ros:melodic-ros-core
+        command: stdbuf -o L roscore
+        networks:
+            - ros
+
+    # C++ talker node
+    talker:
+        container_name: talker
+        image: cpp_package
+        build: src/cpp_package
+        depends_on:
+            - master
+        environment:
+            - "ROS_MASTER_URI=http://master:11311"
+            - "ROS_HOSTNAME=talker"
+        networks:
+            - ros
+
+    # Python listener code
+    listener:
+        container_name: listener
+        image: py_package
+        build: src/py_package
+        depends_on:
+            - master
+        environment:
+            - "ROS_MASTER_URI=http://master:11311"
+            - "ROS_HOSTNAME=listener"
+        networks:
+            - ros
