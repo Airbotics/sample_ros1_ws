@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="https://airbotics.io"><img src="https://airbotics.io/imgs/logo.png" width="175px" alt="Airbotics logo"></a>
+    <a href="https://airbotics.io"><img src="https://uploads-ssl.webflow.com/62ac716857a0ff458e10928a/62ac7b744cc9472c82d20c31_logo-dark-theme.png" width="175px" alt="Airbotics logo"></a>
 </h1>
 
 <h3 align="center">Ship robotics code fast.</h3>
